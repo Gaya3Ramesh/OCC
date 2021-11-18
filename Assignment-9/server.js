@@ -21,11 +21,7 @@ server.post('/welcome',(req,resp)=>{
     const city = req.body.city;
     if(firstName.length==0||firstName===""){
         console.log("First Name is required ");
-        resp.send('First Name is required');
-    }
-    if(city.length==0||city===""){
-        console.log("City is required ");
-        resp.send('City is required');
+        resp.sendFile(__dirname+'/index.html');
     }
     else{
     console.log("My First Name :"+firstName);    

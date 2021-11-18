@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="knockout-3.5.1.js"></script>
+</head>
+<body>
+    <h2>Your Hobbies</h2>
+    <section>
+        <div>
+            <label for="hobby"></label>
+            <input type="text" name="hobby" id="hobby">
+            <button onclick="onClick()">Add</button>
+        </div> 
+        <div>
+            <h5>My Hobbies</h5> 
+            <ul id="hobbies">
+            </ul>
+        </div>
+    </section>
+    <script>
+        const hobby=document.getElementById("hobby");
+        const hobbies=document.getElementById("hobbies");
+
+        function onClick(){
+            const li=document.createElement("li");
+            li.innerText=hobby.value;
+            hobbies.appendChild(li);
+        }
+
+        function ViewModel(){
+             this.hobbies = ko.observable("Enter Hobbies");
+         }
+         const viewModel = new ViewModel();
+         ko.applyBindings(viewModel);
+    </script>
+
+    
+</body>
+</html>

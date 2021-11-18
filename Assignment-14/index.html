@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+</head>
+<body>
+
+    <form data-bind="submit: addTodo">
+        <h1>TO-Do List</h1>
+        <label for="title">Title:</label>
+        <input type="text" data-bind="value:title "   id="title"> <br> <br>
+        <label for="desc">Description</label>
+        <input type="text" data-bind="value:desc "  id="desc"> <br><br>
+        <button data-bind="enable: title().length > 0, desc().length>0">Add</button>
+    </form>
+    <ul data-bind="foreach: todoList">
+        <li>
+            Title:<span data-bind="text:  $data.title"></span><br>
+            Description:<span data-bind="text:  $data.description"></span>
+        </li>   
+   </ul>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Home</title>
+</head>
+<body>
+    <form action="welcome" method="POST">
+        <div class="container w-50 mx-auto border border-dark rounded mt-5">
+            <h1 class="display-5 mb-3">Personal Details</h1>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input class="form-control" type="text" name="firstName"  id="firstName" autocomplete="on" >
+                <div class="alert alert-danger" id="alert-f" style="display: none;" role="alert">
+                
+                </div>
+            </div> <br> <br>
+    
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input class="form-control" type="text" name="lastName"  id="lastName" >
+                <div class="alert alert-danger" id="alert-l" style="display: none;" role="alert">
+                   
+                </div>
+            </div> <br> <br>
+    
+            <div class="form-group">
+                <label for="city">City</label>
+                <input class="form-control" type="text" name="city"  id="city">
+                <div class="alert alert-danger" id="alert-c" style="display: none;" role="alert">
+                   
+                </div>
+            </div><br> <br>
+
+            <button class="btn btn-outline-primary" id="button" type="submit">Submit</button>
+        </div>
+    </form>
+
+
+
+    <script>
+        $(function(){
+            let firstNameError=true;
+            let lastNameError=true;
+            let cityError=true;
+            $("#firstName").keyup(function(){
+                validateFirstName();
+            })
+
+            function validateFirstName() {
+                let firstName = $('#firstName').val();
+                if(firstName.length == ""){
+                    $("#alert-f").css("display" , "block").html("This field is required");
+                    firstNameError=false;
+                }
+                else{
+                    $("#alert-f").css("display" , "none");
+                    firstNameError=true;
+                }
+            }
+
+            $("#lastName").keyup(function(){
+                validateLastName();
+            })
+
+            // function validateLastName() {
+            //     let lastName = $('#lastName').val();
+            //     if(lastName.length == ""){
+            //         $("#alert-l").css("display" , "block").html("This field is required");
+            //         lastNameError=false;
+            //     }
+            //     else{
+            //         $("#alert-l").css("display" , "none");
+            //         lastNameError=true;
+            //     }
+            // }
+
+            // $("#city").keyup(function(){
+            //     validateCity();
+            // })
+
+            function validateCity() {
+                let city = $('#city').val();
+                if(city.length == ""){
+                    $("#alert-c").css("display" , "block").html("This field is required");
+                    cityError=false;
+                }
+                else{
+                    $("#alert-c").css("display" , "none");
+                    cityError=true;
+                }
+            }
+
+            $("#button").on("click",()=>{
+                validateFirstName();
+                validateLastName();
+                validateCity();
+                if(firstNameError===true && lastNameError===true && cityError===true){
+                    return true
+                }
+                else{
+                    return false
+                }
+            })
+        })
+    </script>
+   
+</body>
+</html>

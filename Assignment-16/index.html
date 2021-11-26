@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+    <title>Gender</title>
+    <style>
+        .male{
+            color: blue;
+        }
+        .female{
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <label>Gender:</label> <br> <br>
+    <input data-bind="checked:gender" type="radio" value="male" >Male
+    <input data-bind="checked:gender" type="radio" value="female" >Female
+
+    <h1 data-bind="css:applyGender">Output</h1>
+    <script src="app.js"></script>
+</body>
+</html>
